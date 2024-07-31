@@ -1,0 +1,52 @@
+<div #content class="sidebyside-bid">
+  <div class="header">
+    <h1>{{ tender.title | uppercase }}</h1>
+    <button class="tender-id">{{ tender.id }}</button>
+  </div>
+
+  <div class="tender-details">
+    <p><strong>Start Date:</strong> {{ tender.startDate }}</p>
+    <p><strong>Publish Date:</strong> {{ tender.publishDate }}</p>
+    <p><strong>End Date:</strong> {{ tender.endDate }}</p>
+    <p><strong>Open Date:</strong> {{ tender.openDate }}</p>
+  </div>
+
+  <table id="generalQuestionsTable">
+    <thead>
+      <tr>
+        <th>General Questions</th>
+        <th *ngFor="let vendor of vendors">{{ vendor }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of generalQuestions">
+        <td>{{ question.question }}</td>
+        <td *ngFor="let answer of question.answers">{{ answer }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngFor="let product of products; let i = index">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.specs }}</p>
+    <table [attr.id]="'productTable' + i">
+      <thead>
+        <tr>
+          <th>Questions</th>
+          <th *ngFor="let vendor of vendors">{{ vendor }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of product.questions">
+          <td>{{ question.question }}</td>
+          <td *ngFor="let answer of question.answers">{{ answer }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="export-buttons">
+  <button (click)="exportToExcel()">Export to Excel</button>
+  <button (click)="exportToPDF()">Export to PDF</button>
+</div>
