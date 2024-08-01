@@ -82,6 +82,24 @@ export class SidebySideBidComponent implements OnInit {
             answers: ["yes", "yes", "yes"]
           }
         ]
+      },
+      {
+        name: "Water Bottles",
+        specs: "Capacity : 500ml Quantity - 100 Units Specifications",
+        questions: [
+          {
+            question: "Total price for this product/service with tax",
+            answers: ["10,000", "15,000", "15,000"]
+          },
+          {
+            question: "Can you provide references or testimonials from previous clients who have purchased it",
+            answers: ["yes", "no", "yes"]
+          },
+          {
+            question: "Are the bottles refillable or disposable?",
+            answers: ["yes", "yes", "yes"]
+          }
+        ]
       }
 
     ];
@@ -207,13 +225,13 @@ export class SidebySideBidComponent implements OnInit {
     const headerStyle: Partial<ExcelJS.Style> = {
       font: { color: { argb: 'FFFFFFFF' }, bold: true },
       fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF4CAF50' } },
-      alignment: { horizontal: 'center', vertical: 'middle' }
+      alignment: { horizontal: 'left', vertical: 'middle' }
     };
 
     const subheaderStyle: Partial<ExcelJS.Style> = {
       font: { color: { argb: 'FFFFFFFF' }, bold: true },
       fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF008C72' } },
-      alignment: { horizontal: 'center', vertical: 'middle' }
+      alignment: { horizontal: 'left', vertical: 'middle' }
     };
 
     const borderStyle: Partial<ExcelJS.Borders> = {
